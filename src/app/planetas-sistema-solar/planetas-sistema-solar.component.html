@@ -1,0 +1,229 @@
+<ion-grid>
+  <ion-row align-items-center>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Ingrese nombre del planeta</ion-label>
+        <ion-input type="teentradat" [(ngModel)]="entrada"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<div *ngFor="let mundo of planetas; let indice = index">
+  <div *ngIf="letraMayuscula(entrada) == mundo.nombre; else elseDiv">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+
+          <ion-card>
+            <ion-card-title ALIGN="center">{{mundo.nombre}}</ion-card-title>
+          </ion-card>
+          
+          <div ALIGN="center">
+            <ion-img [src]="mundo.imagen" style="width: 70%;"></ion-img>
+          </div>
+
+          <ion-row>
+            <ion-col size="6"  ALIGN="right" class="ion-align-self-center">
+              <ion-card-content>Temperatura promedio:</ion-card-content>
+            </ion-col>
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-card>
+                <ion-card-content>{{mundo.temperatura_promedio}}</ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+              <ion-card-content>Satélites naturales:</ion-card-content>
+            </ion-col>
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-card>
+                <ion-card-content>{{mundo.satelites}}</ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+              <ion-card-content>Masa:</ion-card-content>
+            </ion-col>
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-card>
+                <ion-card-content>{{mundo.masa}}</ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                <ion-card-content>Gravedad:</ion-card-content>
+            </ion-col>
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-card>
+                <ion-card-content>{{mundo.gravedad}}</ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                <ion-card-content>Periodo de rotación:</ion-card-content>
+            </ion-col>
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-card>
+                <ion-card-content>{{mundo.periodo_rotacion}}</ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                <ion-card-content>Periodo de traslación:</ion-card-content>
+            </ion-col>
+            <ion-col size="6" class="ion-align-self-center">
+              <ion-card>
+                <ion-card-content>{{mundo.periodo_traslacion}}</ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-col class="ion-align-self-center">
+            <ion-row ALIGN="left">
+              <ion-card-content>Dato:</ion-card-content>
+            </ion-row>
+            <ion-row ALIGN="justify">
+              <ion-card>
+                <ion-card-content>{{mundo.dato}}</ion-card-content>
+              </ion-card>
+            </ion-row>
+          </ion-col>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+  <ng-template #elseDiv>
+    <div *ngIf='letraMayuscula(entrada) == "TODOS" || letraMayuscula(entrada) == "PLANETAS"'>
+      <ion-card>
+        <ion-item>
+      
+          <ion-grid>
+
+            <ion-row>
+              <ion-title>{{mundo.nombre}}</ion-title>
+              <ion-toggle color="secondary" [(ngModel)]="array[indice]"></ion-toggle>
+            </ion-row>
+
+            <div *ngIf="array[indice]">
+
+              <div ALIGN="center">
+                <ion-img [src]="mundo.imagen" style="width: 70%;"></ion-img>
+              </div>
+    
+              <ion-row>
+                <ion-col size="6"  ALIGN="right" class="ion-align-self-center">
+                  <ion-card-content>Temperatura promedio:</ion-card-content>
+                </ion-col>
+                <ion-col size="6" class="ion-align-self-center">
+                  <ion-card>
+                    <ion-card-content>{{mundo.temperatura_promedio}}</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                  <ion-card-content>Satélites naturales:</ion-card-content>
+                </ion-col>
+                <ion-col size="6" class="ion-align-self-center">
+                  <ion-card>
+                    <ion-card-content>{{mundo.satelites}}</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                  <ion-card-content>Masa:</ion-card-content>
+                </ion-col>
+                <ion-col size="6" class="ion-align-self-center">
+                  <ion-card>
+                    <ion-card-content>{{mundo.masa}}</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                    <ion-card-content>Gravedad:</ion-card-content>
+                </ion-col>
+                <ion-col size="6" class="ion-align-self-center">
+                  <ion-card>
+                    <ion-card-content>{{mundo.gravedad}}</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                    <ion-card-content>Periodo de rotación:</ion-card-content>
+                </ion-col>
+                <ion-col size="6" class="ion-align-self-center">
+                  <ion-card>
+                    <ion-card-content>{{mundo.periodo_rotacion}}</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col size="6" ALIGN="right" class="ion-align-self-center">
+                    <ion-card-content>Periodo de traslación:</ion-card-content>
+                </ion-col>
+                <ion-col size="6" class="ion-align-self-center">
+                  <ion-card>
+                    <ion-card-content>{{mundo.periodo_traslacion}}</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+
+              <ion-card>
+                  <ion-card-content>
+                    <strong>Dato:</strong>
+                    <ion-row ALIGN="justify">
+                      <p>{{mundo.dato}}</p>
+                    </ion-row>
+                  </ion-card-content>
+              </ion-card>
+
+            </div>
+            
+          </ion-grid>
+      
+        </ion-item>
+      </ion-card>
+    </div>
+  </ng-template>
+
+</div>
+
+<div *ngIf='(letraMayuscula(entrada) != "PLANETAS") && (letraMayuscula(entrada) != "TODOS") && (letraMayuscula(entrada) != "MERCURIO") && (letraMayuscula(entrada) != "VENUS") && (letraMayuscula(entrada) != "TIERRA") && (letraMayuscula(entrada) != "MARTE") && (letraMayuscula(entrada) != "JUPITER") && (letraMayuscula(entrada) != "SATURNO") && (letraMayuscula(entrada) != "URANO") && (letraMayuscula(entrada) != "NEPTUNO") && (letraMayuscula(entrada) != ""); else elseDiv2'>
+    <ion-card>
+      <ion-card-content>
+        NO VALIDO, intente escribiendo: "Todos", "Planetas", "Mercurio", "Venus", "Tierra", "Marte", "Jupiter", "Saturno", "Urano", "Neptuno".
+      </ion-card-content>
+    </ion-card>
+</div>
+
+<ng-template #elseDiv2>
+  <div *ngIf='entrada == ""'>
+    <ion-card>
+      <ion-card-content>
+        NO VALIDO, Ingrese el nombre de algún planeta o escriba "Todos".
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ng-template>

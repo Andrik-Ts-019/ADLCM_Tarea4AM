@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { PlanetasSistemaSolarComponent } from '../planetas-sistema-solar/planetas-sistema-solar.component';
 import { HomePage } from './home.page';
 
 @NgModule({
@@ -18,6 +19,6 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, PlanetasSistemaSolarComponent]
 })
-export class HomePageModule {}
+export class HomePageModule {PlanetasSistemaSolarComponent}
